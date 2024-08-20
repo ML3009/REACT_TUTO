@@ -1,6 +1,7 @@
 import colors from '../../utils/style/colors'
 import styled from 'styled-components';
 import { StyledLink } from '../../utils/style/Atoms'
+import { useTheme } from '../../utils/hooks'
 import HomeIllustration from '../../assets/home-illustration.svg'
 
 const HomeWrapper = styled.div`
@@ -40,12 +41,13 @@ const Illustration = styled.img`
 
 function Home() {
 
+  const { theme } = useTheme();
 
   return (
     <HomeWrapper>
-      <HomerContainer>
+      <HomerContainer theme={theme}>
         <LeftCol>
-          <StyledTitle>
+          <StyledTitle theme={theme}>
             Repérez vos besoins, on s’occupe du reste, avec les meilleurs
             talents
           </StyledTitle>
