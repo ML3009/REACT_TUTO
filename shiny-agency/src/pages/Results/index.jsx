@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { SurveyContext } from '../../utils/context';
 import { useFetch, useTheme } from '../../utils/hooks';
 import { StyledLink, Loader, LoaderWrapper } from '../../utils/style/Atoms';
+import EmptyList from '../../components/EmptyList';
 import styled from 'styled-components';
 import colors from '../../utils/style/colors';
 
@@ -74,6 +75,10 @@ function Results() {
 	if (error) return <span>Il y a un probleme</span>;
 
 	const resultsData = data?.resultsData;
+
+	if (resultsData?.length < 1) {
+		return <EmptyList theme={theme} />
+	}
 
 	return isLoading ? (
 		<LoaderWrapper>

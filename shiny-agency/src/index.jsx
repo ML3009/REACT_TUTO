@@ -8,6 +8,7 @@ import Freelances from './pages/Freelances';
 import Header from './components/Header';
 import Error from './components/Error';
 import Footer from './components/Footer';
+import Profile from './pages/Profile';
 import GlobalStyle from './utils/style/GlobalStyle';
 import { ThemeProvider, SurveyProvider } from './utils/context';
 
@@ -26,6 +27,7 @@ ReactDOM.render(
 												/>
 												<Route path="/results" element={<Results />} />
 												<Route path="/freelances" element={<Freelances />} />
+												<Route path="/profile/:id" element={<Profile />} />
 												<Route path="*" element={<Error />} />
 										</Routes>
 										<Footer />

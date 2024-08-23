@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import colors from '../../utils/style/colors';
 import { useFetch, useTheme } from '../../utils/hooks'
 import { Loader, LoaderWrapper } from '../../utils/style/Atoms';
+import { Link } from 'react-router-dom';
 
 const CardsContainer = styled.div`
 		display: grid;
@@ -55,13 +56,15 @@ function Freelances() {
 								</LoaderWrapper>
 						) : (
 								<CardsContainer>
-										{freelancersList.map((profile) => (
+										{freelancersList?.map((profile) => (
+											<Link key={`freelance-${profile.id}`} to={`/profile/${profile.id}`}>
 												<Card
 														key={`${profile.name}-${profile.id}`}
 														label={`${profile.job}`}
 														title={profile.name}
 														picture={profile.picture}
 												/>
+											</Link>
 										))}
 								</CardsContainer>
 						)}
